@@ -17,14 +17,14 @@
     <section class="multi-step-container">
       <aside class="flex column steps__sidebar sidebar__desktop">
         <button class="flex step--btn">
-          <span class="step--id">1</span>
+          <span class="step--id finished">1</span>
           <div>
             <p>STEP 1</p>
             <p>YOUR INFO</p>
           </div>
         </button>
         <button class="flex step--btn"> 
-          <span class="step--id">2</span>
+          <span class="step--id finished">2</span>
           <div>
             <p>STEP 2</p>
             <p>SELECT PLAN</p>
@@ -64,12 +64,14 @@
             <label for="user--phone">Phone Number *</label>
             <input type="number" id="user--phone" name="user--phone" placeholder="e.g. + 1 234 567 890" required>
           </div>
-          <button class="step--submit--btn">Next Step</button>
+          <div class="navigation-buttons">
+            <button class="step--submit--btn">Next Step</button>
+          </div>
         </form>
       </div>
       
       <!-- 2 -->
-      <div class="form__step active" id="form__step__2">
+      <div class="form__step" id="form__step__2">
         <h1 class="step--title">Select your plan</h1>
         <p class="step--bio">You have the option of monthly or yearly billing.</p>
         <div class="plans">
@@ -95,7 +97,74 @@
             </div>
           </button>
         </div>
+        
+        <div class="plan-type-switcher">
+          <span class="monthly">Monthly</span>
+          <label class="switch">
+            <input type="checkbox" />
+            <span class="slider round" /> 
+          </label>
+          <span class="yearly">Yearly</span>
+        </div>
+        
+        <div class="navigation-buttons">
+          <button class="go--back--btn">Go Back</button>
+          <button class="step--submit--btn">Next Step</button>
+        </div>
       </div>
+      
+      <!-- 3 -->
+      <div class="form__step active" id="form__step__3">
+        <h1 class="step--title">Pick add-ons</h1>
+        <p class="step--bio">Add-ons help enhance your gaming experience.</p>
+        
+        <form class="addons">
+          <div class="addon">
+            <input type="checkbox" id="online-services-addon" name="online-services-addon" />
+            
+            <label for="online-services-addon">
+              <span>Online services</span>
+              <span>Access to multiplayer games</span>
+            </label>
+            
+            <span class="addon-price">+$1/month</span>
+          </div>
+          <div class="addon">
+            <input type="checkbox" id="larger-storage-addon" name="larger-storage-addon" />
+
+            <label for="larger-storage-addon">
+              <span>Larger storage</span>
+              <span>Extra 1TB storage of cloud save</span>
+            </label>
+
+            <span class="addon-price">+$2/month</span>
+          </div>
+          <div class="addon">
+            <input type="checkbox" id="custom-profile-addon" name="custom-profile-addon" />
+ 
+            <label for="custom-profile-addon">
+              <span>Customize profile</span>
+              <span>Custom theme on your profile</span>
+            </label>
+
+            <span class="addon-price">+$2/month</span>
+          </div>
+        </form>
+        
+        <div class="navigation-buttons">
+          <button class="go--back--btn">Go Back</button>
+          <button class="step--submit--btn">Next Step</button>
+        </div>
+      </div>
+      
+      <!-- 4 -->
+      <div class="form__step" id="form__step__4">
+        <h1 class="step--title">Summary</h1>
+        <h1 class="step--bio">Double-check everything looks OK before confirming.</h1>
+      </div>
+      
+      
+      <!-- DONE! -->
     </section>
   </main>
   <!-- JavaScript FILE -->
