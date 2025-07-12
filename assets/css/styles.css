@@ -2,6 +2,9 @@
   --main-bgcolor: #eef5ff;
   --section-bgcolor: #fff;
   --sidebar-radius: 12px;
+  --form-unique-color: #115;
+  --form-unique-bgcolor: #003;
+  --step-id-finished-bgcolor: #6e6;
 }
 * {
   padding: 0;
@@ -45,6 +48,8 @@ section.multi-step-container {
   border-radius: var(--sidebar-radius);
   width: 740px; /* Width of the Multi STEP CONTAINER */
 }
+
+/**************  SIDEBAR ****************/
 .steps__sidebar {
   background-repeat: no-repeat;
   background-size: cover;
@@ -61,22 +66,42 @@ section.multi-step-container {
     background-color: transparent;
     justify-content: space-between;
     & .step--id {
-      background-color: var(--section-bgcolor);
       border-radius: 50%;
-      padding: 8px 12px;
-      font-size: 1.2rem;
+      padding: 6px 12px;
+      font-size: 0.88rem;
+      color: #fff;
+      border: 1px solid currentColor;
+      &.finished {
+        background-color: var(--step-id-finished-bgcolor);
+        color: #000!important;
+        border-color: var(--step-id-finished-bgcolor);
+      }
     }
-    & div p:first-of-type {
-      color: #999;
+    &:hover .step--id, &:hover div p:first-of-type {
+      color: var(--step-id-finished-bgcolor);
+    }
+    & div {
+      text-align: right;
+      & p:first-of-type {
+        color: #9f9f9f;
+      }
+      & p:last-of-type {
+        color: #e1e1e1;
+      }
     }
   }
 }
+
+
+/**************  FORM STEP ****************/
 .form__step {
   padding: 15px 30px;
+  transition: 0.2s display ease-out; 
+  
   & .step--title {
     font-size: 1.8rem;
     padding-bottom: 6px;
-    color: #115;
+    color: var(--form-unique-color);
   }
   
   & .step--bio {
@@ -94,7 +119,7 @@ section.multi-step-container {
       display: block;
     }
     & label {
-      color: #115;
+      color: var(--form-unique-color);
       font-weight: 500;
     }
     & input {
@@ -114,7 +139,7 @@ section.multi-step-container {
   
   & .step--submit--btn {
     align-self: flex-end;
-    background-color: #003;
+    background-color: var(--form-unique-bgcolor);
     color: #fff;
     border-radius: 8px;
     padding: 12px 17px;
