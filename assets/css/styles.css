@@ -1,0 +1,130 @@
+:root {
+  --main-bgcolor: #eef5ff;
+  --section-bgcolor: #fff;
+  --sidebar-radius: 12px;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 16px;
+  font-family: "Ubuntu", sans-serif;
+}
+button {
+  cursor: pointer;
+  border: 0;
+}
+/* Completely removes spin buttons */
+input[type="number"] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+.flex { display: flex; }
+.flex.column { flex-direction: column; }
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100dvh;
+  background: var(--main-bgcolor);
+}
+section.multi-step-container {
+  display: grid;
+  grid-template-columns: 25% auto;
+  padding: 16px;
+  gap: 20px;
+  background-color: var(--section-bgcolor);
+  border-radius: var(--sidebar-radius);
+  width: 740px; /* Width of the Multi STEP CONTAINER */
+}
+.steps__sidebar {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 12px;
+  border-radius: var(--sidebar-radius);
+}
+.sidebar__desktop {
+  background-image: url("./../images/bg-sidebar-desktop.svg");
+  gap: 14px;
+  
+  & button {
+    align-items: center;
+    background-color: transparent;
+    justify-content: space-between;
+    & .step--id {
+      background-color: var(--section-bgcolor);
+      border-radius: 50%;
+      padding: 8px 12px;
+      font-size: 1.2rem;
+    }
+    & div p:first-of-type {
+      color: #999;
+    }
+  }
+}
+.form__step {
+  padding: 15px 30px;
+  & .step--title {
+    font-size: 1.8rem;
+    padding-bottom: 6px;
+    color: #115;
+  }
+  
+  & .step--bio {
+    font-size: 0.85rem;
+    color: #999;
+  }
+  
+  & .step--form {
+    padding: 18px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 24px; /* Space between each (label & input) div container */
+    & div * {
+      display: block;
+    }
+    & label {
+      color: #115;
+      font-weight: 500;
+    }
+    & input {
+      width: 100%;
+      margin-top: 7px; /* Space Between the input and the label */
+      border: 0;
+      border-radius: 4px;
+      padding: 8px 10px;
+      font-size: 0.9rem;
+      outline: 2px solid #eee;
+      transition: 0.05s ease-out;
+      &:focus {
+        outline: 3px solid dodgerblue;
+      }
+    }
+  }
+  
+  & .step--submit--btn {
+    align-self: flex-end;
+    background-color: #003;
+    color: #fff;
+    border-radius: 8px;
+    padding: 12px 17px;
+    margin-top: 14px;
+    transition: 0.2s ease-out;
+    &:hover {
+      opacity: 0.7;
+    }
+    &:active {
+      opacity: 0.4;
+    }
+  }
+}

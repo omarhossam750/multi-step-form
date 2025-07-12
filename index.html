@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <title>Frontend Mentor | Multi-step form</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+  <!-- CSS FILE -->
+  <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body>
+  <main>
+    <section class="multi-step-container">
+      <aside class="flex column steps__sidebar sidebar__desktop">
+        <button class="flex">
+          <span class="step--id">1</span>
+          <div>
+            <p>STEP 1</p>
+            <p>YOUR INFO</p>
+          </div>
+        </button>
+        <button class="flex">
+          <span class="step--id">2</span>
+          <div>
+            <p>STEP 2</p>
+            <p>SELECT PLAN</p>
+          </div>
+        </button>
+        <button class="flex">
+          <span class="step--id">3</span>
+          <div>
+            <p>STEP 3</p>
+            <p>ADD-ONES</p>
+          </div>
+        </button>
+        <button class="flex">
+          <span class="step--id">4</span>
+          <div>
+            <p>STEP 4</p>
+            <p>SUMMARY</p>
+          </div>
+        </button>
+      </aside>
+      <div class="form__step form__step__1">
+        <h1 class="step--title">Personal Info</h1>
+        <p class="step--bio">Please provide your name, email address, and phone number.</p>
+        <form class="step--form">
+          <div>
+            <label for="user--name">Name *</label>
+            <input type="text" id="user--name" name="user--name" placeholder="e.g. Stephen King" required>
+          </div>
+          <div>
+            <label for="user--email">Email Address *</label>
+            <input type="email" id="user--email" name="user--email" placeholder="e.g. stephenking@lorem.com" required>
+          </div>
+          <div>
+            <label for="user--phone">Phone Number *</label>
+            <input type="number" id="user--phone" name="user--phone" placeholder="e.g. + 1 234 567 890" required>
+          </div>
+          <button class="step--submit--btn">Next Step</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <!-- JavaScript FILE -->
+  <script src="./assets/js/script.js"></script>
+</body>
+</html>
