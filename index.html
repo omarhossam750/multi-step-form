@@ -17,14 +17,14 @@
     <section class="multi-step-container">
       <aside class="flex column steps__sidebar sidebar__desktop">
         <button class="flex step--btn">
-          <span class="step--id finished">1</span>
+          <span class="step--id">1</span>
           <div>
             <p>STEP 1</p>
             <p>YOUR INFO</p>
           </div>
         </button>
         <button class="flex step--btn"> 
-          <span class="step--id finished">2</span>
+          <span class="step--id">2</span>
           <div>
             <p>STEP 2</p>
             <p>SELECT PLAN</p>
@@ -48,22 +48,25 @@
       
       <!-------- FORM STEPS -------->
       <!-- 1 -->
-      <div class="form__step" id="form__step__1">
+      <div class="form__step active" id="form__step__1">
         <h1 class="step--title">Personal Info</h1>
         <p class="step--bio">Please provide your name, email address, and phone number.</p>
         <form class="step--form">
           <div>
             <label for="user--name">Name *</label>
-            <input type="text" id="user--name" name="user--name" placeholder="e.g. Stephen King" required>
+            <input type="text" id="user--name" name="user--name" placeholder="e.g. Stephen King">
           </div>
           <div>
             <label for="user--email">Email Address *</label>
-            <input type="email" id="user--email" name="user--email" placeholder="e.g. stephenking@lorem.com" required>
+            <input type="email" id="user--email" name="user--email" placeholder="e.g. stephenking@lorem.com">
           </div>
           <div>
-            <label for="user--phone">Phone Number *</label>
-            <input type="number" id="user--phone" name="user--phone" placeholder="e.g. + 1 234 567 890" required>
+            <label for="user--phone">Phone Number</label>
+            <input type="number" id="user--phone" name="user--phone" placeholder="e.g. + 1 234 567 890">
           </div>
+          
+          <p class="validate--message"></p>
+          
           <div class="navigation-buttons">
             <button class="step--submit--btn">Next Step</button>
           </div>
@@ -114,7 +117,7 @@
       </div>
       
       <!-- 3 -->
-      <div class="form__step active" id="form__step__3">
+      <div class="form__step" id="form__step__3">
         <h1 class="step--title">Pick add-ons</h1>
         <p class="step--bio">Add-ons help enhance your gaming experience.</p>
         
