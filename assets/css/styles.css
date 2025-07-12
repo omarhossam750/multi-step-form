@@ -176,6 +176,10 @@ section.multi-step-container {
     border-radius: 8px;
     padding: 12px 17px;
     transition: 0.2s ease-out;
+    &.summary {
+      padding: 12px 26px;
+      background-color: mediumseagreen;
+    }
     &:hover {
       opacity: 0.7;
     }

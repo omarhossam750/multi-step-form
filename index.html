@@ -82,21 +82,21 @@
             <img src="./assets/images/icon-arcade.svg" alt="An image of Console">
             <div class="plan-content">
               <p class="title">Arcade</p>
-              <p class="price">$9/mo</p>
+              <p class="price">$<span class="price-num">9</span>/<span class="billing">mo</span></p>
             </div>
           </button>
           <button class="plan">
             <img src="./assets/images/icon-advanced.svg" alt="An image of Console">
             <div class="plan-content">
               <p class="title">Advanced</p>
-              <p class="price">$12/mo</p>
+              <p class="price">$<span class="price-num">12</span>/<span class="billing">mo</span></p>
             </div>
           </button>
           <button class="plan">
             <img src="./assets/images/icon-pro.svg" alt="An image of Console">
             <div class="plan-content">
               <p class="title">Pro</p>
-              <p class="price">$15/mo</p>
+              <p class="price">$<span class="price-num">15</span>/<span class="billing">mo</span></p>
             </div>
           </button>
         </div>
@@ -104,11 +104,13 @@
         <div class="plan-type-switcher">
           <span class="monthly">Monthly</span>
           <label class="switch">
-            <input type="checkbox" />
+            <input type="checkbox" id="plan-type-checkbox" />
             <span class="slider round" /> 
           </label>
           <span class="yearly">Yearly</span>
         </div>
+        
+        <p class="validate--message"></p>
         
         <div class="navigation-buttons">
           <button class="go--back--btn">Go Back</button>
@@ -130,7 +132,7 @@
               <span>Access to multiplayer games</span>
             </label>
             
-            <span class="addon-price">+$1/month</span>
+            <span class="addon-price">+$<span class="price-num">1</span>/month</span>
           </div>
           <div class="addon">
             <input type="checkbox" id="larger-storage-addon" name="larger-storage-addon" />
@@ -140,7 +142,7 @@
               <span>Extra 1TB storage of cloud save</span>
             </label>
 
-            <span class="addon-price">+$2/month</span>
+            <span class="addon-price">+$<span class="price-num">2</span>/month</span>
           </div>
           <div class="addon">
             <input type="checkbox" id="custom-profile-addon" name="custom-profile-addon" />
@@ -150,7 +152,7 @@
               <span>Custom theme on your profile</span>
             </label>
 
-            <span class="addon-price">+$2/month</span>
+            <span class="addon-price">+$<span class="price-num">2</span>/month</span>
           </div>
         </form>
         
@@ -164,6 +166,11 @@
       <div class="form__step" id="form__step__4">
         <h1 class="step--title">Summary</h1>
         <h1 class="step--bio">Double-check everything looks OK before confirming.</h1>
+        
+        <div class="navigation-buttons">
+          <button class="go--back--btn">Go Back</button>
+          <button class="step--submit--btn summary">Confirm</button>
+        </div>
       </div>
       
       
