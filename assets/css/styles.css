@@ -15,11 +15,7 @@ html {
   font-size: 16px;
   font-family: "Ubuntu", sans-serif;
 }
-button {
-  cursor: pointer;
-  border: 0;
-}
-/* Completely removes spin buttons */
+/* Completely removes spin buttons for input number */
 input[type="number"] {
   -webkit-appearance: textfield;
   -moz-appearance: textfield;
@@ -30,8 +26,15 @@ input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }
+/* Global Properties */
+button {
+  cursor: pointer;
+  border: 0;
+}
 .flex { display: flex; }
 .flex.column { flex-direction: column; }
+
+/************  MAIN & PARENT SECTION ************/
 main {
   display: flex;
   justify-content: center;
@@ -47,6 +50,7 @@ section.multi-step-container {
   background-color: var(--section-bgcolor);
   border-radius: var(--sidebar-radius);
   width: 740px; /* Width of the Multi STEP CONTAINER */
+  min-height: 450px;
 }
 
 /**************  SIDEBAR ****************/
@@ -96,8 +100,7 @@ section.multi-step-container {
 /**************  FORM STEP ****************/
 .form__step {
   padding: 15px 30px;
-  transition: 0.2s display ease-out; 
-  
+  display: none;
   & .step--title {
     font-size: 1.8rem;
     padding-bottom: 6px;
@@ -152,4 +155,48 @@ section.multi-step-container {
       opacity: 0.4;
     }
   }
+}
+
+.form__step.active { display: block; animation: form_step_anime 0.8s ease; }
+
+/***** Plans *****/
+.plans {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 20px 0;
+  & .plan {
+    padding: 8px;
+    border-radius: 8px;
+    background-color: transparent;
+    border: 1px solid #eee;
+    text-align: left;
+    
+    & .plan-content {
+      padding-top: 20px;
+      
+      & p:first-of-type {
+        color: var(--form-unique-color);
+        font-weight: 600;
+        padding-bottom: 3px;
+        font-size: 1rem;
+      }
+      & p:last-of-type {
+        color: #999;
+        font-size: 0.9rem;
+      }
+    }
+    
+    &:hover {
+      border-color: var(--form-unique-bgcolor);
+    }
+  }
+}
+.plan.chose {
+  border-color: var(--form-unique-color)!important;
+}
+/*************** ANIMATION *************/
+@keyframes form_step_anime {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

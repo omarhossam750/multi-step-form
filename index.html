@@ -16,28 +16,28 @@
   <main>
     <section class="multi-step-container">
       <aside class="flex column steps__sidebar sidebar__desktop">
-        <button class="flex">
+        <button class="flex step--btn">
           <span class="step--id">1</span>
           <div>
             <p>STEP 1</p>
             <p>YOUR INFO</p>
           </div>
         </button>
-        <button class="flex">
+        <button class="flex step--btn"> 
           <span class="step--id">2</span>
           <div>
             <p>STEP 2</p>
             <p>SELECT PLAN</p>
           </div>
         </button>
-        <button class="flex">
+        <button class="flex step--btn">
           <span class="step--id">3</span>
           <div>
             <p>STEP 3</p>
             <p>ADD-ONES</p>
           </div>
         </button>
-        <button class="flex">
+        <button class="flex step--btn">
           <span class="step--id">4</span>
           <div>
             <p>STEP 4</p>
@@ -45,7 +45,10 @@
           </div>
         </button>
       </aside>
-      <div class="form__step form__step__1">
+      
+      <!-------- FORM STEPS -------->
+      <!-- 1 -->
+      <div class="form__step" id="form__step__1">
         <h1 class="step--title">Personal Info</h1>
         <p class="step--bio">Please provide your name, email address, and phone number.</p>
         <form class="step--form">
@@ -63,6 +66,35 @@
           </div>
           <button class="step--submit--btn">Next Step</button>
         </form>
+      </div>
+      
+      <!-- 2 -->
+      <div class="form__step active" id="form__step__2">
+        <h1 class="step--title">Select your plan</h1>
+        <p class="step--bio">You have the option of monthly or yearly billing.</p>
+        <div class="plans">
+          <button class="plan">
+            <img src="./assets/images/icon-arcade.svg" alt="An image of Console">
+            <div class="plan-content">
+              <p class="title">Arcade</p>
+              <p class="price">$9/mo</p>
+            </div>
+          </button>
+          <button class="plan">
+            <img src="./assets/images/icon-advanced.svg" alt="An image of Console">
+            <div class="plan-content">
+              <p class="title">Advanced</p>
+              <p class="price">$12/mo</p>
+            </div>
+          </button>
+          <button class="plan">
+            <img src="./assets/images/icon-pro.svg" alt="An image of Console">
+            <div class="plan-content">
+              <p class="title">Pro</p>
+              <p class="price">$15/mo</p>
+            </div>
+          </button>
+        </div>
       </div>
     </section>
   </main>
