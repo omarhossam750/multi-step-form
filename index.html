@@ -81,21 +81,21 @@
           <button class="plan">
             <img src="./assets/images/icon-arcade.svg" alt="An image of Console">
             <div class="plan-content">
-              <p class="title">Arcade</p>
+              <p class="plan-title">Arcade</p>
               <p class="price">$<span class="price-num">9</span>/<span class="billing">mo</span></p>
             </div>
           </button>
           <button class="plan">
             <img src="./assets/images/icon-advanced.svg" alt="An image of Console">
             <div class="plan-content">
-              <p class="title">Advanced</p>
+              <p class="plan-title">Advanced</p>
               <p class="price">$<span class="price-num">12</span>/<span class="billing">mo</span></p>
             </div>
           </button>
           <button class="plan">
             <img src="./assets/images/icon-pro.svg" alt="An image of Console">
             <div class="plan-content">
-              <p class="title">Pro</p>
+              <p class="plan-title">Pro</p>
               <p class="price">$<span class="price-num">15</span>/<span class="billing">mo</span></p>
             </div>
           </button>
@@ -104,10 +104,11 @@
         <div class="plan-type-switcher">
           <span class="monthly">Monthly</span>
           <label class="switch">
-            <input type="checkbox" id="plan-type-checkbox" />
+            <input type="checkbox" id="plan-type-checkbox" checked />
             <span class="slider round" /> 
           </label>
           <span class="yearly">Yearly</span>
+          <span id="offer">2 months free</span>
         </div>
         
         <p class="validate--message"></p>
@@ -125,34 +126,34 @@
         
         <form class="addons">
           <div class="addon">
-            <input type="checkbox" id="online-services-addon" name="online-services-addon" />
+            <input type="checkbox" id="online-services-addon" name="online-services-addon" class="addon-checkbox" />
             
             <label for="online-services-addon">
-              <span>Online services</span>
+              <span class="addon--title">Online services</span>
               <span>Access to multiplayer games</span>
             </label>
             
-            <span class="addon-price">+$<span class="price-num">1</span>/month</span>
+            <span class="addon-price">+$<span class="price-num">1</span>/<span class="billing">mo</span></span>
           </div>
           <div class="addon">
-            <input type="checkbox" id="larger-storage-addon" name="larger-storage-addon" />
+            <input type="checkbox" id="larger-storage-addon" name="larger-storage-addon" class="addon-checkbox" />
 
             <label for="larger-storage-addon">
-              <span>Larger storage</span>
+              <span class="addon--title">Larger storage</span>
               <span>Extra 1TB storage of cloud save</span>
             </label>
 
-            <span class="addon-price">+$<span class="price-num">2</span>/month</span>
+            <span class="addon-price">+$<span class="price-num">2</span>/<span class="billing">mo</span></span>
           </div>
           <div class="addon">
-            <input type="checkbox" id="custom-profile-addon" name="custom-profile-addon" />
+            <input type="checkbox" id="custom-profile-addon" name="custom-profile-addon" class="addon-checkbox" />
  
             <label for="custom-profile-addon">
-              <span>Customize profile</span>
+              <span class="addon--title">Customize profile</span>
               <span>Custom theme on your profile</span>
             </label>
 
-            <span class="addon-price">+$<span class="price-num">2</span>/month</span>
+            <span class="addon-price">+$<span class="price-num">2</span>/<span class="billing">mo</span></span>
           </div>
         </form>
         
@@ -166,6 +167,11 @@
       <div class="form__step" id="form__step__4">
         <h1 class="step--title">Summary</h1>
         <h1 class="step--bio">Double-check everything looks OK before confirming.</h1>
+        
+        <div id="summary">
+          
+        </div>
+          
         
         <div class="navigation-buttons">
           <button class="go--back--btn">Go Back</button>

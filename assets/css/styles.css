@@ -199,8 +199,9 @@ section.multi-step-container {
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   margin: 20px 0;
+  
   & .plan {
-    padding: 8px;
+    padding: 14px 10px;
     border-radius: 8px;
     background-color: transparent;
     border: 1px solid #eee;
@@ -209,12 +210,6 @@ section.multi-step-container {
     & .plan-content {
       padding-top: 20px;
       
-      & p:first-of-type {
-        color: var(--form-unique-color);
-        font-weight: 600;
-        padding-bottom: 3px;
-        font-size: 1rem;
-      }
       & p:last-of-type {
         color: #999;
         font-size: 0.9rem;
@@ -225,6 +220,12 @@ section.multi-step-container {
       border-color: var(--form-unique-bgcolor);
     }
   }
+}
+.plan-title {
+  color: var(--form-unique-color);
+  font-weight: 600;
+  padding-bottom: 3px;
+  font-size: 1rem;
 }
 .plan.chose {
   border-color: var(--form-unique-color)!important;
@@ -239,6 +240,7 @@ section.multi-step-container {
   background-color: #eef;
   font-size: 0.8rem;
   color: #333;
+  position: relative;
 
   & .switch {
     margin: 15px;
@@ -326,6 +328,19 @@ section.multi-step-container {
   &:hover { border-color: purple; }
 }
 .addon:has(input[type="checkbox"]:checked) { border-color: purple; }
+
+#offer { /*** montly & yearly ***/
+  position: absolute; 
+  right: -5px;
+  background-color: mediumseagreen;
+  color: #fff;
+  font-weight: bold;
+  padding: 12px 8px;
+  border-radius: 7px;
+  transform: rotate(20deg) translateY(-50%);
+  font-size: 1.2rem;  
+  top: 50%;
+}
 
 /*************** ANIMATION *************/
 @keyframes form_step_anime {

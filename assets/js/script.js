@@ -5,8 +5,7 @@ const goBackBtns = [...document.getElementsByClassName("go--back--btn")];
 const nextStepBtns = [...document.getElementsByClassName("step--submit--btn")];
 const plans = [...document.getElementsByClassName("plan")];
 const planTypeCheckbox = document.getElementById("plan-type-checkbox");
-let totalPayings = 0;
-planTypeCheckbox.checked = false;
+planTypeCheckbox.checked = true;
 
 function updateSteps(stepId) {
   const formStep = document.getElementById(`form__step__${stepId}`);
@@ -128,21 +127,30 @@ plans.forEach(plan => plan.onclick = () => {
   plan.classList.toggle("chose");
 });
 
-let wasPlanTypeYearly = false;
+let isPlanTypeYearly = false;
 
-planTypeCheckbox.onclick = function() {
-  const nums = [...document.querySelectorAll("#form__step__2 .price-num")];
-  const billings = [...document.querySelectorAll("#form__step__2 .billing")];
-  if (wasPlanTypeYearly) {
-    nums.forEach(num => num.textContent = Number(num.textContent) / 12);
+function switchBillingType() {
+  const nums = [...document.querySelectorAll(".price-num")];
+  const billings = [...document.querySelectorAll(".billing")];
+  const offerMsg = document.getElementById("offer");
+  
+  if (isPlanTypeYearly) {
+    nums.forEach(num => num.textContent = Number(num.textContent) / 10);
     billings.forEach(billing => billing.textContent = "mo");
-    wasPlanTypeYearly = false;  
-    return; 
+    isPlanTypeYearly = false;
+    offerMsg.style.display = "none";
+    return;   
   }
-  nums.forEach(num => num.textContent = Number(num.textContent) * 12);
+  nums.forEach(num => num.textContent = Math.floor(Number(num.textContent) * 10));
   billings.forEach(billing => billing.textContent = "year");
-  wasPlanTypeYearly = true;  
+  isPlanTypeYearly = true;
+  offerMsg.style.display = "block";
 }
+
+switchBillingType();
+
+planTypeCheckbox.onclick = switchBillingType;  
+
 
 function validateStep2() {
   let isThisPlanChose = 0;
@@ -157,5 +165,45 @@ function validateStep2() {
   validateMessage.textContent = "";
   
   stepIds[1].classList.add("finished");
+  getSummary();
   updateSteps(3);
+}
+/**** ADD-ONS ****/
+
+
+/**** SUMMARY ****/
+function getSummary() {
+  const summaryStep = document.getElementById("form__step__4");
+  // Plans
+  const planTitle = document.querySelector(".plan.chose .plan-title").textContent;
+  const planPrice = document.querySelector(".plan.chose .price").textContent;
+  const planPriceNum = document.querySelector(".plan.chose .price-num").textContent;
+  // Addons
+  const selectedAddonsTitles = [...document.querySelectorAll(".addons .addon-checkbox:checked ~ .addon--title")];
+  const selectedAddonsPrices = [...document.querySelectorAll(".addons .addon-checkbox:checked ~ .addon-price")];
+  const summaryContainer = document.getElementById("summary");
+  
+  summaryContainer.innerHTML = `
+    <div class="plan-summary">
+      <div>
+        <p class="plan-title">${planTitle} (${isPlanTypeYearly ? "Yearly" : "Monthly"})</p>
+        <button onclick="updateSteps(stepId - 1)">Change</button>
+      </div>
+      <span><strong>${planPrice}</strong><span>
+    </div>
+  `
+  //////////////// STOPPED HERE ///////////////
+  if (selectedAddons) {
+    summaryContainer.innerHTML += `
+      <hr>
+      <div class="addons-summary">
+    `
+    selectedAddons.forEach(addon => {
+      summaryContainer.innerHTML += `
+        <div class='addon--summary'>
+          <p>${document.querySelector("")}
+        </div>
+      `
+    })
+  }
 }
