@@ -6,6 +6,7 @@ const nextStepBtns = [...document.getElementsByClassName("step--submit--btn")];
 const plans = [...document.getElementsByClassName("plan")];
 const planTypeCheckbox = document.getElementById("plan-type-checkbox");
 planTypeCheckbox.checked = true;
+let isPlanTypeYearly = false;
 
 function updateSteps(stepId) {
   const formStep = document.getElementById(`form__step__${stepId}`);
@@ -48,6 +49,7 @@ nextStepBtns.forEach(btn => {
       case 3:
         stepIds[2].classList.add("finished");
         updateSteps(4);
+        getSummary();
         break;
       case 4:
         stepIds[3].classList.add("finished");
@@ -121,13 +123,13 @@ function validateStep1() {
   stepIds[0].classList.add("finished");
   updateSteps(2);
 }
+
 // PLANS //
 plans.forEach(plan => plan.onclick = () => {
   plans.forEach(x => x.classList.contains("chose") ? x.classList.remove("chose") : "");
   plan.classList.toggle("chose");
 });
 
-let isPlanTypeYearly = false;
 
 function switchBillingType() {
   const nums = [...document.querySelectorAll(".price-num")];
@@ -165,11 +167,9 @@ function validateStep2() {
   validateMessage.textContent = "";
   
   stepIds[1].classList.add("finished");
-  getSummary();
   updateSteps(3);
 }
-/**** ADD-ONS ****/
-
+/**** ADD-ONS ****/   
 
 /**** SUMMARY ****/
 function getSummary() {
@@ -179,31 +179,45 @@ function getSummary() {
   const planPrice = document.querySelector(".plan.chose .price").textContent;
   const planPriceNum = document.querySelector(".plan.chose .price-num").textContent;
   // Addons
-  const selectedAddonsTitles = [...document.querySelectorAll(".addons .addon-checkbox:checked ~ .addon--title")];
-  const selectedAddonsPrices = [...document.querySelectorAll(".addons .addon-checkbox:checked ~ .addon-price")];
+  const addonsTitles = [...document.querySelectorAll(".addons .addon-checkbox:checked ~ label .addon--title")];
+  const addonsPrices = [...document.querySelectorAll(".addons .addon-checkbox:checked ~ .addon-price")];
+  const addonsPriceNum =  [...document.querySelectorAll(".addons .addon-checkbox:checked ~ .addon-price .price-num")];
+  
   const summaryContainer = document.getElementById("summary");
   
   summaryContainer.innerHTML = `
-    <div class="plan-summary">
+    <div class="plan-summary flex space-between align-center">
       <div>
         <p class="plan-title">${planTitle} (${isPlanTypeYearly ? "Yearly" : "Monthly"})</p>
-        <button onclick="updateSteps(stepId - 1)">Change</button>
+        <button onclick="updateSteps(2)">Change</button>
       </div>
       <span><strong>${planPrice}</strong><span>
     </div>
   `
-  //////////////// STOPPED HERE ///////////////
-  if (selectedAddons) {
+  if (addonsTitles.length) {
     summaryContainer.innerHTML += `
       <hr>
       <div class="addons-summary">
     `
-    selectedAddons.forEach(addon => {
+
+    for (let i = 0; i < addonsTitles.length; i++) {
+      let [currTitle, currPrice] = [addonsTitles[i].textContent, addonsPrices[i].textContent];
       summaryContainer.innerHTML += `
-        <div class='addon--summary'>
-          <p>${document.querySelector("")}
-        </div>
+          <div class='_addon_ flex space-between align-center'>
+            <p>${currTitle}</p>
+            <p>${currPrice}</p>
+          </div>
       `
-    })
+    }
+    summaryContainer.innerHTML += `</div>`;
   }
+  const totalPriceElement = document.getElementById("total-price");
+  let totalPrice = Number(planPriceNum);
+  addonsPriceNum.forEach(num => totalPrice += Number(num.textContent));
+  let totalPriceForamt = `+$${totalPrice}/${isPlanTypeYearly ? "year" : "mo"}`;
+  
+  totalPriceElement.innerHTML = `
+    <p>Total (per ${isPlanTypeYearly ? "year" : "month"})</p>
+    <p class="total-price">${totalPriceForamt}</p>  
+  `
 }
