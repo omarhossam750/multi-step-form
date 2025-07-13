@@ -53,7 +53,7 @@ nextStepBtns.forEach(btn => {
         break;
       case 4:
         stepIds[3].classList.add("finished");
-        updateSteps(5);
+        showThanks();
         break;
     }
   }
@@ -220,4 +220,23 @@ function getSummary() {
     <p>Total (per ${isPlanTypeYearly ? "year" : "month"})</p>
     <p class="total-price">${totalPriceForamt}</p>  
   `
+}
+
+function showThanks() {
+  const lastStep = document.getElementById("form__step__4");
+  lastStep.innerHTML = `
+    <div class="thanks-container">
+      <img src="./assets/images/icon-thank-you.svg" class="thanks-img" />
+      <h1 class="step--title">Thank you!</h1>
+      <p>Thanks for confirming your subscription! We hope you have fun using our platform. if you need support, please feel free to email us at support@loremgaming.com.</p>
+    </div>
+  `
+  freezeModifications();
+}
+
+function freezeModifications() {
+  const inputs = [...document.querySelectorAll("input")];
+  const plans = [...document.querySelectorAll(".plan")];
+  inputs.forEach(input => input.disabled = true);
+  plans.forEach(plan => plan.onclick = function() {})
 }
