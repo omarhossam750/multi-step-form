@@ -101,7 +101,7 @@ function validateStep1() {
   
   if (userName.value === "") {  
     [userName.style.outlineColor, validateMessage.textContent] = validateError("Name");
-    userName.onkeyup = () => { 
+    userName.onchange = () => { 
       [userName.style.outlineColor, validateMessage.textContent] = validateSuccess()
     }
     return; 
@@ -110,7 +110,7 @@ function validateStep1() {
   if (!isValidEmail(userEmail.value)) { 
     [userEmail.style.outlineColor, validateMessage.textContent] = validateError("Email");
     
-    userEmail.onkeyup = function() {
+    userEmail.onchange = function() {
       if (isValidEmail(userEmail.value)) {
         [userEmail.style.outlineColor, validateMessage.textContent] = validateSuccess()
       } else {
@@ -169,7 +169,6 @@ function validateStep2() {
   stepIds[1].classList.add("finished");
   updateSteps(3);
 }
-/**** ADD-ONS ****/   
 
 /**** SUMMARY ****/
 function getSummary() {
