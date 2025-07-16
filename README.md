@@ -21,4 +21,7 @@ I think this project contains **90%** of JavaScript & CSS you might use in any o
 
 It was a fun and hard project at the same time but it actually sharpen my Front End Skills and now I can say that I could build websites using CSS & JavaScript effieceny.
 
-Wanna see the project? [Live Website Link Below!] 
+**note:** the website contains some minor issues which I'll fix them soon in the future especially in Responsive for very low and very large screens.
+
+**Wanna see the project?** [Live Website Link Below!] 
+(https://omarhossam750.github.io/multi-step-form/)
