@@ -72,7 +72,7 @@ section.multi-step-container {
   padding: var(--steps-sidebar-padding);
   border-radius: var(--sidebar-radius);
 
-  background-image: url("./../images/bg-sidebar-desktop.svg");
+  background-image: url("./../public/images/bg-sidebar-desktop.svg");
   gap: var(--sidebar-desktop-gap);
   
   & .step--btn {
@@ -460,12 +460,12 @@ section.multi-step-container {
     --section-container-height: 600px;
     --sidebar-desktop-gap: 20px;
   }
-  html { font-size: 20px!important;}
+  html { font-size: 20px!important; }
   .step--form input {
     outline-width: 3px!important;
     margin-top: 5px;
-    &:focus { outline-width: 5px!important }
   }
+  .step--form input:focus { outline-width: 5px!important }
   .plan-type-switcher {
     margin-top: 45px;
   }
@@ -477,6 +477,7 @@ section.multi-step-container {
     }
   }
 }
+
 @media (min-width: 1690px) {
   :root {
     --section-container-width: 1190px;
@@ -529,7 +530,7 @@ section.multi-step-container {
 }
 /********* Mobile Screens *******/
 @media (max-width: 580px) {
-  html { font-size: 14px; )
+  html { font-size: 14px; }
   main { position: relative; 
     display: flex;
     justify-content: center;
@@ -543,7 +544,7 @@ section.multi-step-container {
     width: 100%;
     left: 0;
     border-radius: 0 0 7.5% 7.5%;
-    background-image: url("./../images/bg-sidebar-mobile.svg");
+    background-image: url("./../public/images/bg-sidebar-mobile.svg");
     background-position: top;
     z-index: 2;
     height: 75px;

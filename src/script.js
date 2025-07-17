@@ -225,7 +225,7 @@ function showThanks() {
   const lastStep = document.getElementById("form__step__4");
   lastStep.innerHTML = `
     <div class="thanks-container">
-      <img src="./assets/images/icon-thank-you.svg" class="thanks-img" />
+      <img src="./public/images/icon-thank-you.svg" class="thanks-img" />
       <h1 class="step--title">Thank you!</h1>
       <p>Thanks for confirming your subscription! We hope you have fun using our platform. if you need support, please feel free to email us at support@loremgaming.com.</p>
     </div>
